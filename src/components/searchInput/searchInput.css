@@ -1,0 +1,45 @@
+main {
+  width: 100vw;
+}
+
+form {
+  display: flex;
+  place-items: center;
+  position: relative;
+  width: 32rem;
+}
+
+form:focus-within {
+  outline: 1px solid rgb(108, 230, 223);
+}
+
+input {
+  height: 52px;
+  width: 100%;
+  padding: 10px;
+  border: none;
+}
+
+button {
+  position: absolute;
+  right: 9px;
+  z-index: 2;
+  background-color: rgb(67, 151, 147);
+  color: white;
+  height: 60px;
+  width: 90px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button:disabled {
+  background-color: rgb(108, 230, 223);
+  cursor: not-allowed;
+}
+
+@media screen and (max-width: 670px) {
+  form {
+    width: 93%;
+  }
+}
