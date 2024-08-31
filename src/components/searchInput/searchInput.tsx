@@ -1,20 +1,26 @@
 import { useState } from 'react'
 import './searchInput.css'
 
-const SearchInput = () => {
+interface ISearchInputProps {
+  onSubmit: (input: string) => void
+}
+
+const SearchInput = (props: ISearchInputProps) => {
   const [searchValue, setSearchValue] = useState('')
 
   const onSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault()
-    console.log(event.currentTarget)
+    props.onSubmit(searchValue)
+    setSearchValue('')
   }
 
   return (
-    <form>
+    <form id='search-series-form'>
       <input
         type='text'
         placeholder='Search for TV shows'
         onChange={(event) => setSearchValue(event.target.value)}
+        value={searchValue}
       />
       <button
         type='submit'

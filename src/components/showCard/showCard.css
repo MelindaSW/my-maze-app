@@ -1,0 +1,22 @@
+.showCard {
+  display: flex;
+  flex-direction: column;
+}
+
+.tvShowPoster {
+  width: 100%;
+  height: 80%;
+}
+
+.noPosterState {
+  height: 80%;
+  width: 100%;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.226);
+}
+
+.title {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  font-size: 20px;
+}
