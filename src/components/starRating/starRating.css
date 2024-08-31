@@ -1,8 +1,9 @@
 .stars {
   color: goldenrod;
+  font-size: 0.7rem;
 }
 
 .noRating {
   color: goldenrod;
-  font-size: x-small;
+  font-size: 0.7rem;
 }

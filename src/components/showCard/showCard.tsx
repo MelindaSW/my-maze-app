@@ -1,6 +1,7 @@
 import './showCard.css'
 import { IImageUrl } from '../../types/showTypes'
 import StarRating from '../starRating/starRating'
+import NoImageIcon from '../noImageIcon'
 
 interface IShowCardProps {
   imageUrl: IImageUrl
@@ -10,7 +11,6 @@ interface IShowCardProps {
 }
 
 const ShowCard = (props: IShowCardProps) => {
-  console.log({ props })
   return (
     <article className='showCard'>
       {props.imageUrl !== null ? (
@@ -23,7 +23,9 @@ const ShowCard = (props: IShowCardProps) => {
           alt='Tv-show poster'
         />
       ) : (
-        <div className='noPosterState'>N/A</div>
+        <div className='noPosterState'>
+          <NoImageIcon />
+        </div>
       )}
       <h3 className='title'>{props.title}</h3>
       <StarRating maxRating={props.maxRating} rating={props.rating} />
