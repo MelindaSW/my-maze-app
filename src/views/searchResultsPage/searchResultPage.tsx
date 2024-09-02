@@ -1,33 +1,58 @@
-import { useLocation } from 'react-router-dom'
-import ShowCard from '../../components/showCard/showCard'
-import { IShow } from '../../types/showTypes'
 import './searchResultPage.css'
-import MazeLogo from '../../components/mazeLogo'
+import { IShow } from '../../types/showTypes'
+import { useEffect } from 'react'
+import { useSearchAllShows } from '../../hooks/useSearchAllShows'
+import ShowCard from '../../components/showCard/showCard'
+import SearchHeader from '../../components/searchHeader/searchHeader'
 import SearchInput from '../../components/searchInput/searchInput'
+import MazeLogo from '../../components/mazeLogo'
 
 const SearchResultPage = () => {
-  const { state } = useLocation()
+  const { searchResult, errorMessage, handleSearch } = useSearchAllShows()
+
+  useEffect(() => {
+    const previousSearch = localStorage.getItem('currentSearchQuery')
+    if (previousSearch !== null) {
+      handleSearch(previousSearch)
+    }
+  }, [])
+
   return (
-    <div className='pageContainer'>
-      <header>
-        <MazeLogo />
-        <SearchInput onSubmit={function (input: string): void {}} />
-      </header>
-      <main>
-        <div className='searchResultsContainer'>
-          {state.map((show: IShow) => {
-            return (
-              <ShowCard
-                maxRating={10}
-                rating={show.averageRating}
-                imageUrl={show.imageUrl}
-                title={show.name}
-              />
-            )
-          })}
+    <>
+      {searchResult.length === 0 ? (
+        <main className='firstSearchView'>
+          <MazeLogo />
+          <SearchInput onSubmit={(searchValue) => searchValue} />
+          <span
+            className={
+              errorMessage.length > 0 ? 'errorMessage' : 'errorMessageHidden'
+            }
+          >
+            {errorMessage}
+          </span>
+        </main>
+      ) : (
+        <div className='searchPage'>
+          <SearchHeader onSubmit={(input) => handleSearch(input)} />
+          <main className='currentSearchView'>
+            <div className='searchResultsContainer'>
+              {searchResult.map((show: IShow, index) => {
+                return (
+                  <ShowCard
+                    maxRating={10}
+                    rating={show.averageRating}
+                    imageUrl={show.imageUrl}
+                    title={show.name}
+                    id={show.id}
+                    key={index}
+                  />
+                )
+              })}
+            </div>
+          </main>
         </div>
-      </main>
-    </div>
+      )}
+    </>
   )
 }
 

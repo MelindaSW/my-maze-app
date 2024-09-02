@@ -10,10 +10,16 @@ interface IShow {
   imageUrl: IImageUrl
 }
 
+interface IShowDetail extends IShow {
+  genres: string[]
+  summary: string
+  cast: ICastMember[]
+}
+
 interface ICastMember {
   name: string
   characterName: string
   imageUrl: IImageUrl | null
 }
 
-export type { IShow, ICastMember, IImageUrl }
+export type { IShow, IShowDetail, ICastMember, IImageUrl }

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   IErrorResponse,
   IGetAllShowsResponse,
@@ -38,7 +39,7 @@ const getOneShowDetailsWithCast = async (
 ): Promise<IGetOneShowResponse | IErrorResponse> => {
   const url = `${baseURL}/shows/${id}?embed=cast`
 
-  const response = await fetch(url)
+  const response: Response = await fetch(url)
 
   if (response.ok) {
     const data = await response.json()

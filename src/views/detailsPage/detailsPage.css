@@ -1,0 +1,23 @@
+.detailsPage {
+  width: 100%;
+  height: 100%;
+  /* margin: auto; */
+  display: flex;
+  flex-direction: column;
+  /* align-items: center;
+  justify-content: center; */
+}
+
+a {
+  height: fit-content;
+}
+
+.backToSearchResultsNav {
+  background-color: rgb(19, 19, 19);
+  padding: 0.5rem;
+}
+
+.leftArrow {
+  font-weight: bold;
+  font-size: larger;
+}

@@ -1,19 +1,20 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import StartPage from './views/startPage/startPage'
 import SearchResultPage from './views/searchResultsPage/searchResultPage'
 import DetailsPage from './views/detailsPage/detailsPage'
+import { getOneShowDetailsWithCast } from './api/searchSeries'
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <StartPage />
-  },
-  {
-    path: '/search',
     element: <SearchResultPage />
   },
   {
     path: '/details/:seriesId',
-    element: <DetailsPage />
+    element: <DetailsPage />,
+    loader: async ({ request, params }) => {
+      if (params.id) {
+        getOneShowDetailsWithCast(+params.id)
+      }
+    }
   }
   //   {
   //   // it renders this element

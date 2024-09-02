@@ -1,49 +1,72 @@
-.pageContainer {
+.firstSearchView {
+  width: 100vw;
+  height: 55%;
+  display: flex;
+  place-content: center;
+  flex-direction: column;
+  place-items: center;
+  justify-content: end;
+  position: relative;
+}
+
+.searchPage {
   display: flex;
   flex-direction: column;
   gap: 5rem;
   margin-bottom: 5rem;
 }
 
-main {
-  width: 80%;
-  margin: auto;
-}
-
-header {
-  display: flex;
-  align-items: end;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-top: 3rem;
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .searchResultsContainer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
+  width: 80%;
+  margin: auto;
 }
 
 #search-series-form {
   margin-top: 0px;
 }
 
+#search-series-form {
+  width: 32rem;
+  /* margin-top: 3.5rem; */
+}
+
+.errorMessageHidden {
+  visibility: hidden;
+  position: absolute;
+  bottom: -50px;
+}
+
+.errorMessage {
+  visibility: visible;
+  outline: 1px solid rgb(133, 16, 16);
+  position: absolute;
+  bottom: -50px;
+  font-size: small;
+  text-align: center;
+}
+
 @media screen and (max-width: 670px) {
-  main {
-    width: 90%;
-  }
   .searchResultsContainer {
     grid-template-columns: repeat(2, 1fr);
+    width: 90%;
   }
 
   header {
     gap: 1rem;
-    width: 90%;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  #search-series-form {
+    width: 93%;
+  }
+
+  .errorMessage {
+    width: 70%;
+    font-size: x-small;
+    bottom: -60px;
   }
 }
