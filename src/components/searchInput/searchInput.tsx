@@ -5,12 +5,12 @@ interface ISearchInputProps {
   onSubmit: (input: string) => void
 }
 
-const SearchInput = (props: ISearchInputProps) => {
+const SearchInput = ({ onSubmit }: ISearchInputProps) => {
   const [searchValue, setSearchValue] = useState('')
 
-  const onSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault()
-    props.onSubmit(searchValue)
+    onSubmit(searchValue)
     setSearchValue('')
   }
 
@@ -25,7 +25,7 @@ const SearchInput = (props: ISearchInputProps) => {
       <button
         type='submit'
         disabled={searchValue.length === 0}
-        onClick={(event) => onSubmit(event)}
+        onClick={(event) => handleSubmit(event)}
       >
         Search
       </button>

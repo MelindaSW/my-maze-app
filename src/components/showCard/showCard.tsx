@@ -1,7 +1,7 @@
 import './showCard.css'
 import { IImageUrl } from '../../types/showTypes'
 import StarRating from '../starRating/starRating'
-import NoImageIcon from '../noImageIcon'
+import NoImageIcon from '../../assets/noImageIcon'
 import { Link } from 'react-router-dom'
 
 interface IShowCardProps {

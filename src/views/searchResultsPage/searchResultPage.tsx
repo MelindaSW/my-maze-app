@@ -5,7 +5,7 @@ import { useSearchAllShows } from '../../hooks/useSearchAllShows'
 import ShowCard from '../../components/showCard/showCard'
 import SearchHeader from '../../components/searchHeader/searchHeader'
 import SearchInput from '../../components/searchInput/searchInput'
-import MazeLogo from '../../components/mazeLogo'
+import MazeLogo from '../../assets/mazeLogo'
 
 const SearchResultPage = () => {
   const { searchResult, errorMessage, handleSearch } = useSearchAllShows()
@@ -21,15 +21,17 @@ const SearchResultPage = () => {
     <>
       {searchResult.length === 0 ? (
         <main className='firstSearchView'>
-          <MazeLogo />
-          <SearchInput onSubmit={(searchValue) => searchValue} />
-          <span
-            className={
-              errorMessage.length > 0 ? 'errorMessage' : 'errorMessageHidden'
-            }
-          >
-            {errorMessage}
-          </span>
+          <header>
+            <MazeLogo />
+            <SearchInput onSubmit={(input) => handleSearch(input)} />
+            <span
+              className={
+                errorMessage.length > 0 ? 'errorMessage' : 'errorMessageHidden'
+              }
+            >
+              {errorMessage}
+            </span>
+          </header>
         </main>
       ) : (
         <div className='searchPage'>

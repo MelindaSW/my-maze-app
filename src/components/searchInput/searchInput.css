@@ -2,33 +2,44 @@
   display: flex;
   place-items: center;
   position: relative;
+  width: 100%;
 }
 
 #search-series-form:focus-within {
   outline: 1px solid rgb(108, 230, 223);
 }
 
-input {
+#search-series-form input {
   height: 50px;
   width: 100%;
-  padding: 9px;
+  padding: 0.3vw 0.3vw 0.3vw 0.6vw;
   border: none;
 }
 
-button {
+#search-series-form button {
   position: absolute;
-  right: 5px;
+  right: 0.3vw;
   z-index: 2;
   background-color: rgb(67, 151, 147);
   color: white;
-  height: 60px;
+  height: calc(50px * 0.9);
   width: 110px;
   border: none;
   cursor: pointer;
   font-weight: 600;
 }
 
-button:disabled {
+#search-series-form button:disabled {
   background-color: rgb(108, 230, 223);
   cursor: not-allowed;
+}
+
+@media screen and (max-width: 670px) {
+  #search-series-form input {
+    padding: 4px 4px 4px 7px;
+  }
+
+  #search-series-form button {
+    right: 4px;
+  }
 }

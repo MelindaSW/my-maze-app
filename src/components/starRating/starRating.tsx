@@ -5,12 +5,12 @@ interface IStarRatingProps {
   rating: number | null
 }
 
-const StarRating = (props: IStarRatingProps) => {
-  const filledStarsAmount = props.rating !== null ? Math.round(props.rating) : 0
-  const emptyStarsAmount = props.maxRating - filledStarsAmount
+const StarRating = ({ maxRating, rating }: IStarRatingProps) => {
+  const filledStarsAmount = rating !== null ? Math.round(rating) : 0
+  const emptyStarsAmount = maxRating - filledStarsAmount
   return (
     <>
-      {props.rating && (
+      {rating && (
         <div className='stars'>
           {Array.from({ length: filledStarsAmount }).map((_item, index) => (
             <span key={index}>&#9733;</span>
@@ -22,7 +22,7 @@ const StarRating = (props: IStarRatingProps) => {
           ))}
         </div>
       )}
-      {props.rating === null && (
+      {rating === null && (
         <div className='noRating'>
           <span>&#9734;</span> Not yet rated
         </div>

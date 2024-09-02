@@ -3,8 +3,7 @@ interface IMazeLogoProps {
   width?: string | number
 }
 
-const MazeLogo = (props: IMazeLogoProps) => {
-  const { height = 80, width = 253 } = props
+const MazeLogo = ({ height = 80, width = 253 }: IMazeLogoProps) => {
   return (
     <svg
       width={width}
