@@ -18,11 +18,11 @@
 
 #search-series-form button {
   position: absolute;
-  right: 0.3vw;
+  right: 4px;
   z-index: 2;
   background-color: rgb(67, 151, 147);
   color: white;
-  height: calc(50px * 0.9);
+  height: 46px;
   width: 110px;
   border: none;
   cursor: pointer;
@@ -41,5 +41,6 @@
 
   #search-series-form button {
     right: 4px;
+    height: 46px;
   }
 }

@@ -1,20 +1,67 @@
 .detailsPage {
   width: 100%;
   height: 100%;
+  margin-bottom: 5rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
-a {
-  height: fit-content;
+.backToSearchLink {
+  width: calc(2% + var(--view-full-width));
+  text-decoration: none;
+  color: white;
+  background-color: rgba(19, 19, 19, 0.349);
+  padding: 0.6vw 0;
+  margin: 50px auto;
 }
 
-.backToSearchResultsNav {
-  background-color: rgb(19, 19, 19);
-  padding: 0.5rem;
+.backToSearchLink span {
+  margin-left: 1vw;
 }
 
 .leftArrow {
   font-weight: bold;
   font-size: larger;
+}
+
+.showDetailsContainer {
+  width: var(--view-full-width);
+  display: grid;
+  grid-template-columns: fit-content(30%) fit-content(70%);
+  gap: 5vw;
+}
+
+h1 {
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+}
+
+h3 {
+  margin-top: 0.6rem;
+}
+
+h3 span {
+  font-weight: normal;
+}
+
+h2 {
+  margin-top: 5vw;
+}
+
+.castCardContainer {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 3vw;
+}
+
+.showPoster {
+  width: 300px;
+}
+
+@media screen and (max-width: 1000px) {
+  .showDetailsContainer {
+    grid-auto-flow: dense;
+  }
 }

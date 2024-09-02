@@ -1,14 +1,9 @@
-interface IMazeLogoProps {
-  height?: string | number
-  width?: string | number
-}
-
-const MazeLogo = ({ height = 80, width = 253 }: IMazeLogoProps) => {
+const MazeLogo = () => {
   return (
     <svg
-      width={width}
-      height={height}
-      viewBox={`0 0 ${width} ${height}`}
+      width='253'
+      height='80'
+      viewBox={`0 0 253 80`}
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
       xmlnsXlink='http://www.w3.org/1999/xlink'

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import './searchResultPage.css'
 import { IShow } from '../../types/showTypes'
 import { useEffect } from 'react'
@@ -11,9 +12,9 @@ const SearchResultPage = () => {
   const { searchResult, errorMessage, handleSearch } = useSearchAllShows()
 
   useEffect(() => {
-    const previousSearch = localStorage.getItem('currentSearchQuery')
-    if (previousSearch !== null) {
-      handleSearch(previousSearch)
+    const storedSearchValue = localStorage.getItem('currentSearchQuery')
+    if (storedSearchValue !== null) {
+      handleSearch(storedSearchValue)
     }
   }, [])
 

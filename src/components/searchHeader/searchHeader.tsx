@@ -8,8 +8,10 @@ interface ISearchHeaderProps {
 
 const SearchHeader = ({ onSubmit }: ISearchHeaderProps) => {
   return (
-    <header>
-      <MazeLogo />
+    <header className='searchHeader'>
+      <div className='logoContainer'>
+        <MazeLogo />
+      </div>
       <SearchInput onSubmit={(input) => onSubmit(input)} />
     </header>
   )
