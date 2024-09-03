@@ -6,19 +6,24 @@
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 
-  --view-full-width: 80%;
-  --view-mobile-width: 90%;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+#root {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+
+
+  --desktop-view-width: 80%;
+  --mobile-view-width: 90%;
+}
+
 body {
   margin: 0;
-  display: flex;
   min-width: 100vw;
   min-height: 100vh;
-  justify-content: center;
 }

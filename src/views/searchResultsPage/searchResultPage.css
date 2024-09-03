@@ -19,13 +19,14 @@
   flex-direction: column;
   gap: 1rem;
   margin-bottom: 5rem;
+  width: 80%;
 }
 
 .searchResultsContainer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
-  width: var(--view-full-width);
+  width: 80%;
   margin: auto;
 }
 
@@ -46,12 +47,12 @@
 
 @media screen and (max-width: 670px) {
   .firstSearchView header {
-    width: var(--view-mobile-width);
+    width: 90%;
   }
 
   .searchResultsContainer {
     grid-template-columns: repeat(2, 1fr);
-    width: var(--view-mobile-width);
+    width: 90%;
   }
 
   .errorMessage {
