@@ -1,8 +1,9 @@
 .firstSearchView {
   width: 100vw;
-  height: 55%;
+  height: 50vh;
   display: flex;
-  place-content: center;
+  align-content: end;
+  justify-content: center;
 }
 
 .firstSearchView header {
@@ -52,7 +53,7 @@
 
   .searchResultsContainer {
     grid-template-columns: repeat(2, 1fr);
-    width: 90%;
+    width: 100%;
   }
 
   .errorMessage {
