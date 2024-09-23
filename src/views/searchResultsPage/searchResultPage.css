@@ -20,15 +20,17 @@
   flex-direction: column;
   gap: 1rem;
   margin-bottom: 5rem;
+}
+
+.currentSearchView {
   width: 80%;
+  margin: auto;
 }
 
 .searchResultsContainer {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(max(150px, 100%/5), 1fr));
   gap: 1rem;
-  width: 80%;
-  margin: auto;
 }
 
 .errorMessageHidden {
@@ -47,12 +49,12 @@
 }
 
 @media screen and (max-width: 670px) {
-  .firstSearchView header {
+  .firstSearchView header,
+  .searchPage {
     width: 90%;
   }
 
-  .searchResultsContainer {
-    grid-template-columns: repeat(2, 1fr);
+  .currentSearchView {
     width: 100%;
   }
 

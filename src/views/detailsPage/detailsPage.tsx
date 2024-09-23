@@ -1,25 +1,26 @@
-import './detailsPage.css'
-import { useEffect, useState } from 'react'
-import SearchHeader from '../../components/searchHeader/searchHeader'
-import { IShowDetail } from '../../types/showTypes'
-import { Link, redirect, useLoaderData } from 'react-router-dom'
-import CastCard from '../../components/castCard/castCard'
-import StarRating from '../../components/starRating/starRating'
+import './detailsPage.css';
+import { useEffect, useState } from 'react';
+import SearchHeader from '../../components/searchHeader/searchHeader';
+import { IShowDetail } from '../../types/showTypes';
+import { Link, redirect, useLoaderData } from 'react-router-dom';
+import CastCard from '../../components/castCard/castCard';
+import StarRating from '../../components/starRating/starRating';
+import NoImage from '../../assets/no-image.png';
 
 const DetailsPage = () => {
-  const [showDetails, setShowDetails] = useState<IShowDetail>()
-  const loaderData = useLoaderData()
+  const [showDetails, setShowDetails] = useState<IShowDetail>();
+  const loaderData = useLoaderData();
 
   useEffect(() => {
     if (loaderData !== null) {
-      setShowDetails(loaderData as IShowDetail)
+      setShowDetails(loaderData as IShowDetail);
     }
-  }, [setShowDetails, loaderData])
+  }, [setShowDetails, loaderData]);
 
   const handleOnSubmit = (searchValue: string) => {
-    localStorage.setItem('currentSearchQuery', searchValue)
-    redirect('/')
-  }
+    localStorage.setItem('currentSearchQuery', searchValue);
+    redirect('/');
+  };
 
   return (
     <div className='detailsPage'>
@@ -30,7 +31,11 @@ const DetailsPage = () => {
       {showDetails && (
         <main className='showDetailsContainer'>
           <img
-            src={showDetails.imageUrl.medium}
+            src={
+              showDetails.imageUrl !== null
+                ? showDetails.imageUrl.medium
+                : NoImage
+            }
             alt='Show poster'
             className='showPoster'
           />
@@ -48,7 +53,9 @@ const DetailsPage = () => {
                   key={index}
                   name={castMember.name}
                   characterName={castMember.characterName}
-                  imageUrl={castMember.imageUrl?.medium}
+                  imageUrl={
+                    castMember.imageUrl ? castMember.imageUrl?.medium : null
+                  }
                 />
               ))}
             </div>
@@ -56,7 +63,7 @@ const DetailsPage = () => {
         </main>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default DetailsPage
+export default DetailsPage;
