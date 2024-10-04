@@ -30,7 +30,7 @@
 .searchResultsContainer {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(max(150px, 100%/5), 1fr));
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .errorMessageHidden {
@@ -46,6 +46,10 @@
   bottom: -50px;
   font-size: small;
   text-align: center;
+}
+
+.logoContainer {
+  justify-content: left !important;
 }
 
 @media screen and (max-width: 670px) {

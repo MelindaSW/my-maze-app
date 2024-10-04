@@ -1,15 +1,15 @@
-import './starRating.css'
+import './starRating.css';
 
 interface IStarRatingProps {
-  maxRating: number
-  rating: number | null
+  maxRating: number;
+  rating: number | null;
 }
 
 const StarRating = ({ maxRating, rating }: IStarRatingProps) => {
-  const filledStarsAmount = rating !== null ? Math.round(rating) : 0
-  const emptyStarsAmount = maxRating - filledStarsAmount
+  const filledStarsAmount = rating !== null ? Math.round(rating) : 0;
+  const emptyStarsAmount = maxRating - filledStarsAmount;
   return (
-    <>
+    <div className='starRatingContainer'>
       {rating && (
         <div className='stars'>
           {Array.from({ length: filledStarsAmount }).map((_item, index) => (
@@ -27,8 +27,8 @@ const StarRating = ({ maxRating, rating }: IStarRatingProps) => {
           <span>&#9734;</span> Not yet rated
         </div>
       )}
-    </>
-  )
-}
+    </div>
+  );
+};
 
-export default StarRating
+export default StarRating;

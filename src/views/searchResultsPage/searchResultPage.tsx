@@ -1,22 +1,22 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import './searchResultPage.css'
-import { IShow } from '../../types/showTypes'
-import { useEffect } from 'react'
-import { useSearchAllShows } from '../../hooks/useSearchAllShows'
-import ShowCard from '../../components/showCard/showCard'
-import SearchHeader from '../../components/searchHeader/searchHeader'
-import SearchInput from '../../components/searchInput/searchInput'
-import MazeLogo from '../../assets/mazeLogo'
+import './searchResultPage.css';
+import { IShow } from '../../types/showTypes';
+import { useEffect } from 'react';
+import { useSearchAllShows } from '../../hooks/useSearchAllShows';
+import ShowCard from '../../components/showCard/showCard';
+import SearchHeader from '../../components/searchHeader/searchHeader';
+import SearchInput from '../../components/searchInput/searchInput';
+import MazeLogo from '../../assets/mazeLogo';
 
 const SearchResultPage = () => {
-  const { searchResult, errorMessage, handleSearch } = useSearchAllShows()
+  const { searchResult, errorMessage, handleSearch } = useSearchAllShows();
 
   useEffect(() => {
-    const storedSearchValue = localStorage.getItem('currentSearchQuery')
+    const storedSearchValue = localStorage.getItem('currentSearchQuery');
     if (storedSearchValue !== null) {
-      handleSearch(storedSearchValue)
+      handleSearch(storedSearchValue);
     }
-  }, [])
+  }, []);
 
   return (
     <>
@@ -40,6 +40,8 @@ const SearchResultPage = () => {
           <main className='currentSearchView'>
             <div className='searchResultsContainer'>
               {searchResult.map((show: IShow, index) => {
+                console.log(show.name, show.imageUrl);
+
                 return (
                   <ShowCard
                     maxRating={10}
@@ -49,14 +51,14 @@ const SearchResultPage = () => {
                     id={show.id}
                     key={index}
                   />
-                )
+                );
               })}
             </div>
           </main>
         </div>
       )}
     </>
-  )
-}
+  );
+};
 
-export default SearchResultPage
+export default SearchResultPage;

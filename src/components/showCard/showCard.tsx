@@ -22,7 +22,7 @@ const ShowCard = ({
 }: IShowCardProps) => {
   return (
     <Link to={`/details/${id}`} className='posterLink'>
-      <article className='showCard'>
+      <div className='showCard'>
         <img
           className='tvShowPoster'
           src={
@@ -30,13 +30,13 @@ const ShowCard = ({
               ? imageUrl.original
               : NoImage
           }
-          alt='Tv-show poster'
+          alt={title + ' poster'}
         />
         <div>
           <h3 className='title'>{title}</h3>
           <StarRating maxRating={maxRating} rating={rating} />
         </div>
-      </article>
+      </div>
     </Link>
   );
 };

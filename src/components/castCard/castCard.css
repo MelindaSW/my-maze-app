@@ -4,17 +4,9 @@
 }
 
 .castCard img {
-  height: 150px;
-}
-
-.noImageState {
-  height: 150px;
-  width: 108px;
-  text-align: center;
-  background-color: rgba(0, 0, 0, 0.226);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 25%;
+  aspect-ratio: 1 / 1.5;
+  object-fit: cover;
 }
 
 .castCard h3 {
@@ -24,4 +16,11 @@
 .castCard p {
   margin: 0;
   font-weight: 200;
+}
+
+@media screen and (max-width: 670px) {
+  .castCard img {
+    width: 40%;
+    aspect-ratio: 1 / 1;
+  }
 }

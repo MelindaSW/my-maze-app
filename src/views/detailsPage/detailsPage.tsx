@@ -9,11 +9,11 @@ import NoImage from '../../assets/no-image.png';
 
 const DetailsPage = () => {
   const [showDetails, setShowDetails] = useState<IShowDetail>();
-  const loaderData = useLoaderData();
+  const loaderData = useLoaderData() as IShowDetail;
 
   useEffect(() => {
     if (loaderData !== null) {
-      setShowDetails(loaderData as IShowDetail);
+      setShowDetails(loaderData);
     }
   }, [setShowDetails, loaderData]);
 
@@ -39,7 +39,7 @@ const DetailsPage = () => {
             alt='Show poster'
             className='showPoster'
           />
-          <article>
+          <article className='showDetailsArticle'>
             <h1>{showDetails.name}</h1>
             <StarRating maxRating={10} rating={showDetails.averageRating} />
             <h3>
@@ -48,16 +48,18 @@ const DetailsPage = () => {
             <div dangerouslySetInnerHTML={{ __html: showDetails.summary }} />
             <h2>Cast</h2>
             <div className='castCardContainer'>
-              {showDetails.cast.map((castMember, index) => (
-                <CastCard
-                  key={index}
-                  name={castMember.name}
-                  characterName={castMember.characterName}
-                  imageUrl={
-                    castMember.imageUrl ? castMember.imageUrl?.medium : null
-                  }
-                />
-              ))}
+              {showDetails.cast.length > 0
+                ? showDetails.cast.map((castMember, index) => (
+                    <CastCard
+                      key={index}
+                      name={castMember.name}
+                      characterName={castMember.characterName}
+                      imageUrl={
+                        castMember.imageUrl ? castMember.imageUrl?.medium : null
+                      }
+                    />
+                  ))
+                : '(No cast information available)'}
             </div>
           </article>
         </main>

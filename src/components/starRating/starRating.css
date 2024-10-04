@@ -1,10 +1,9 @@
-.stars {
-  color: goldenrod;
+.starRatingContainer {
   font-size: 0.8rem;
-  letter-spacing: 0.2rem;
+  color: goldenrod;
+  width: 100%;
 }
 
-.noRating {
-  color: goldenrod;
-  font-size: 0.8rem;
+.stars {
+  letter-spacing: 0.2rem;
 }

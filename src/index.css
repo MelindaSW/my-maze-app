@@ -10,8 +10,6 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --desktop-view-width: 80%;
-  --mobile-view-width: 90%;
 }
 
 * {
