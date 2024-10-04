@@ -2,7 +2,7 @@ import './detailsPage.css';
 import { useEffect, useState } from 'react';
 import SearchHeader from '../../components/searchHeader/searchHeader';
 import { IShowDetail } from '../../types/showTypes';
-import { Link, redirect, useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import CastCard from '../../components/castCard/castCard';
 import StarRating from '../../components/starRating/starRating';
 import NoImage from '../../assets/no-image.png';
@@ -10,6 +10,7 @@ import NoImage from '../../assets/no-image.png';
 const DetailsPage = () => {
   const [showDetails, setShowDetails] = useState<IShowDetail>();
   const loaderData = useLoaderData() as IShowDetail;
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (loaderData !== null) {
@@ -19,7 +20,7 @@ const DetailsPage = () => {
 
   const handleOnSubmit = (searchValue: string) => {
     localStorage.setItem('currentSearchQuery', searchValue);
-    redirect('/');
+    navigate('/');
   };
 
   return (
@@ -43,23 +44,38 @@ const DetailsPage = () => {
             <h1>{showDetails.name}</h1>
             <StarRating maxRating={10} rating={showDetails.averageRating} />
             <h3>
-              Genres: <span>{showDetails.genres.join(' | ')}</span>
+              Genres:{' '}
+              {showDetails.genres.length > 0 ? (
+                <span>{showDetails.genres.join(' | ')}</span>
+              ) : (
+                <span className='noInfoAvailable'>No genres available...</span>
+              )}
             </h3>
-            <div dangerouslySetInnerHTML={{ __html: showDetails.summary }} />
+            {showDetails.summary !== null ? (
+              <div dangerouslySetInnerHTML={{ __html: showDetails.summary }} />
+            ) : (
+              <span className='noInfoAvailable'>
+                No description available...
+              </span>
+            )}
             <h2>Cast</h2>
             <div className='castCardContainer'>
-              {showDetails.cast.length > 0
-                ? showDetails.cast.map((castMember, index) => (
-                    <CastCard
-                      key={index}
-                      name={castMember.name}
-                      characterName={castMember.characterName}
-                      imageUrl={
-                        castMember.imageUrl ? castMember.imageUrl?.medium : null
-                      }
-                    />
-                  ))
-                : '(No cast information available)'}
+              {showDetails.cast.length > 0 ? (
+                showDetails.cast.map((castMember, index) => (
+                  <CastCard
+                    key={index}
+                    name={castMember.name}
+                    characterName={castMember.characterName}
+                    imageUrl={
+                      castMember.imageUrl ? castMember.imageUrl?.medium : null
+                    }
+                  />
+                ))
+              ) : (
+                <span className='noInfoAvailable'>
+                  No cast information available...
+                </span>
+              )}
             </div>
           </article>
         </main>
