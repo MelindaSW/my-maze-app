@@ -21,13 +21,13 @@ const SearchResultPage = () => {
   return (
     <>
       {searchResult.length === 0 ? (
-        <main className='firstSearchView'>
+        <main className="firstSearchView">
           <header>
             <MazeLogo />
             <SearchInput onSubmit={(input) => handleSearch(input)} />
             <span
               className={
-                errorMessage.length > 0 ? 'errorMessage' : 'errorMessageHidden'
+                errorMessage.length > 0 ? "errorMessage" : "errorMessageHidden"
               }
             >
               {errorMessage}
@@ -35,10 +35,11 @@ const SearchResultPage = () => {
           </header>
         </main>
       ) : (
-        <div className='searchPage'>
+        <div className="searchPage">
           <SearchHeader onSubmit={(input) => handleSearch(input)} />
-          <main className='currentSearchView'>
-            <div className='searchResultsContainer'>
+          <div className="errorMessage">{errorMessage}</div>
+          <main className="currentSearchView">
+            <div className="searchResultsContainer">
               {searchResult.map((show: IShow, index) => {
                 return (
                   <ShowCard

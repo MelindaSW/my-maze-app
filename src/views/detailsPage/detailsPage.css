@@ -71,7 +71,7 @@ h2 {
 }
 
 .noInfoAvailable {
-  font-size: smaller;
+  font-size: small;
   font-weight: 100;
   font-style: italic;
 }
@@ -88,6 +88,7 @@ h2 {
   }
 
   .showPoster {
+    width: 100px;
     grid-column-start: -1;
     margin-top: 0.83rem;
   }
@@ -100,5 +101,9 @@ h2 {
   .castCardContainer {
     gap: 4vw;
     font-size: 0.6rem;
+  }
+
+  .detailsPage > .searchHeader {
+    width: 90%;
   }
 }

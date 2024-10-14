@@ -19,13 +19,13 @@ const useSearchAllShows = () => {
       const allShows = (result as IGetAllShowsResponse).shows;
       if (allShows.length === 0) {
         setErrorMessage(
-          'Could not find any shows with this name, please try again with a different query.'
+          `Could not find any shows with the name "${searchValue}", please try again with a different query`
         );
       } else {
         setSearchResult([...allShows]);
       }
     } else {
-      setErrorMessage('Something went wrong, please try again.');
+      setErrorMessage("Something went wrong, please try again");
     }
   };
 
