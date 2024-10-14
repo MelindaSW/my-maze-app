@@ -21,7 +21,7 @@
 
 @media screen and (max-width: 670px) {
   .castCard img {
-    width: 40%;
-    aspect-ratio: 1 / 1;
+    width: 40px;
+    aspect-ratio: 1 / 1.2;
   }
 }

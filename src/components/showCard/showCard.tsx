@@ -21,19 +21,19 @@ const ShowCard = ({
   id
 }: IShowCardProps) => {
   return (
-    <Link to={`/details/${id}`} className='posterLink'>
-      <div className='showCard'>
+    <Link to={`/details/${id}`} className="posterLink">
+      <div className="showCard">
         <img
-          className='tvShowPoster'
+          className="tvShowPoster"
           src={
             imageUrl !== null && imageUrl !== undefined
               ? imageUrl.original
               : NoImage
           }
-          alt={title + ' poster'}
+          alt={title + " poster"}
         />
         <div>
-          <h3 className='title'>{title}</h3>
+          <h3 className="title">{title}</h3>
           <StarRating maxRating={maxRating} rating={rating} />
         </div>
       </div>

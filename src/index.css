@@ -16,12 +16,8 @@
 
 * {
   margin: 0px;
-}
-
-#root {
   box-sizing: border-box;
-  display: flex;
-  justify-content: center;
+
 }
 
 body {
