@@ -40,8 +40,6 @@ const SearchResultPage = () => {
           <main className='currentSearchView'>
             <div className='searchResultsContainer'>
               {searchResult.map((show: IShow, index) => {
-                console.log(show.name, show.imageUrl);
-
                 return (
                   <ShowCard
                     maxRating={10}
