@@ -6,6 +6,8 @@
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 
+  --img-background-color:  rgba(95, 158, 160, 0.13);
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

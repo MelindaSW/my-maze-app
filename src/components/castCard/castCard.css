@@ -7,6 +7,7 @@
   width: 25%;
   aspect-ratio: 1 / 1.5;
   object-fit: cover;
+  background-color: var(--img-background-color);
 }
 
 .castCard h3 {
